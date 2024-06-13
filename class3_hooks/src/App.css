@@ -1,0 +1,40 @@
+
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   
+  gap: 10px;
+}
+.heading{
+  color:#0398d4 ;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.navbar{
+  background-color: white;
+  padding: 0.75rem ;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  gap: 12px;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  
+  
+      }
+      
+button{
+  background-color: #0398d4;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
