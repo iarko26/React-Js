@@ -31,7 +31,9 @@ let addval=()=>{
 
   }
   Counter=Counter+1
+
   setCount(Counter)
+
   console.log("Adding",Counter)
 
 
