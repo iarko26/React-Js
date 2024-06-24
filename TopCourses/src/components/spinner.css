@@ -1,0 +1,20 @@
+.spinner {
+    width: 56px;
+    height: 56px;
+    border: 11.2px Red double;
+    border-left-style: solid;
+    border-radius: 50%;
+    animation: spinner-aib1d7 0.75s infinite linear;
+    margin: 0 auto;
+    display: flex;
+    place-items: center;
+    place-content: center;
+
+    
+ }
+ 
+ @keyframes spinner-aib1d7 {
+    to {
+       transform: rotate(360deg);
+    }
+ }
