@@ -36,7 +36,6 @@ const info=[
     {
         id:5,
         name:"Dcastalia",
-    
         type:"E-Commerce, Corporate, NGO, Government",
         image:"https://dcastalia.com/themes/cms/assets/images/static/logo.svg",
         desc:"Dcastalia is a digital agency that specializes in creating beautiful, user-friendly websites and web applications. We are a team of passionate designers, developers, and marketers who are committed to helping our clients succeed online.",
