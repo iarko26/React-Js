@@ -3,6 +3,7 @@ import Ucallback from './hooks/Ucallback'
 import Ustate from './hooks/Ustate'
 import Umemo from './hooks/Umemo'
 import URef from './hooks/URef'
+import Ucontext from './hooks/Ucontext'
 
 import Pass from './components/Pass'
 import Ueffect from './hooks/Ueffect'
@@ -10,8 +11,8 @@ import Ueffect from './hooks/Ueffect'
 function App() {
   return (
     <div>
-   <Pass />
-{/* <URef /> */}
+   {/* <Pass /> */}
+<Ucontext />
     </div>
   )
 }
