@@ -28,21 +28,23 @@ const handledata=(e)=>{
 
 
 }
-const togglepassword=()=>{
-    setpassword(!showpassword)
-}
+
 
   return (
-   <form onSubmit={handledata}>
-    <lable htmlFor="email">Email</lable>
+   <form onSubmit={handledata} className="flex flex-col w-full gap-y-4 mt-6">
+    <lable className='w-full'>
+    <p className='text-[0.875rem] text-green-700 mb-1 leading-[1.375rem]'>Email</p>
     <input type="email"
     id="email"
     name="email"
     value={formdata.email}
     placeholder='Enter your email'
     onChange={changehandler}
+     className='bg-yellow-700 rounded-[0.5rem] text-richblack-5 w-full p-[12px]'
     />
-    <lable htmlFor="password">Password</lable>
+    </lable>
+    <lable >
+    <p>Password</p>
     <input type={showpassword?("text"):("password")}
     id="password"
     name='password'
@@ -50,14 +52,17 @@ const togglepassword=()=>{
     placeholder='Enter your password'
     onChange={changehandler}
     />
-    <span>
-        {showpassword ? (<FaEyeSlash onClick={togglepassword}/>) : (<FaEye onClick={togglepassword}/>)}
+    <span onClick={()=>setpassword((prev)=>!prev)}>
+        {showpassword ? <FaEyeSlash /> : <FaEye />}
+        
     </span>
     <Link to='#'>
     
         <p>Forgot Password?</p>
 
     </Link>
+    </lable>
+    
 
     <button type='submit'>
         Sign In

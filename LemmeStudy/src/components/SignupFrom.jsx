@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa"
+import { Navigate, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 function SignupFrom({setloggedin}) {
+    const navigate=useNavigate();
     const[formdata,setformdata]=useState({
         fname:'',
         lname:'',
@@ -9,23 +12,29 @@ function SignupFrom({setloggedin}) {
         password:'',
         cpassword:''
     })
+    
+    const handledata=(e)=>{
+        e.preventDefault()
+        if(formdata.password !== formdata.cpassword){
+            toast.error('Password and Confirm Password should be same')
+            return;
+        }
+     setloggedin(true)
+    toast.success('Signup Successfull')
+    console.log(formdata)
+    navigate('/dashboard')
+    }
     const changehandler=(e)=>{
-        const [name,value]=e.target;
+        const {name,value}=e.target;
         setformdata({
             ...formdata,
             [name]:value
         })
     }
 
-    const handledata=(e)=>{
-        e.preventDefault();
-        console.log(formdata)
-
-    }
     const[showpassword,setpassword]=useState(false)
-    const togglepassword=()=>{
-        setpassword(!showpassword)
-    }
+    const [showConfirmPassword,setConfirmPassword]=useState(false)
+
   return (
     <div>
     <div>
@@ -39,7 +48,7 @@ function SignupFrom({setloggedin}) {
    <form onSubmit={handledata}>
     <label htmlFor="name"> First Name</label>
     <input type='text'
-    id='name'
+    id='fname'
     name='fname'
     value={formdata.fname}
     placeholder='Enter your name'
@@ -47,7 +56,7 @@ function SignupFrom({setloggedin}) {
     />
     <label htmlFor="name"> Last Name</label>
     <input type='text'
-    id='name'
+    id='lname'
     name='lname'
     value={formdata.lname}
     placeholder='Enter your name'
@@ -55,33 +64,33 @@ function SignupFrom({setloggedin}) {
     />
     <label htmlFor="email"> Email</label>
     <input type='email'
-    id='name'
+    id='email'
     name='email'
     value={formdata.email}
     placeholder='Enter your name'
     onChange={changehandler}
     />
     <label htmlFor='password'>Create Password</label>
-    <input type={showpassword?React('text'):('password')}
+    <input type={showpassword?('text'):('password')}
     id='password'
     name='password'
     value={formdata.password}
     placeholder='Enter your password'
     onChange={changehandler}
     />
-     <span>
-        {showpassword ? (<FaEyeSlash onClick={togglepassword}/>) : (<FaEye onClick={togglepassword}/>)}
+     <span onClick={()=>setpassword(prev=>!prev)}>
+       {showpassword ? (<FaEyeSlash />) : (<FaEye />)}
     </span>
     <label htmlFor='cpassword'>Confirm Password</label>
-    <input type={showpassword?React('text'):('password')}
+    <input type={showConfirmPassword?('text'):('password')}
     id='cpassword'
     name='cpassword'
     value={formdata.cpassword}
     placeholder='Enter your password'
     onChange={changehandler}
     />
-    <span>
-        {showpassword ? (<FaEyeSlash onClick={togglepassword}/>) : (<FaEye onClick={togglepassword}/>)}
+     <span onClick={()=>setConfirmPassword(prev=>!prev)}>
+       {showConfirmPassword ? (<FaEyeSlash />) : (<FaEye />)}
     </span>
     <button type='submit'>
         Sign Up

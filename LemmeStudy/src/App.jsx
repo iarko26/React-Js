@@ -12,12 +12,12 @@ import React from 'react'
 function App() {
   const [isloggedin,setloggedin]=useState(false);
   return (
-    <div>
+    <div className='w-screen h-screen bg-[#161D29] flex flex-col'>
 <Navbar isloggedin={isloggedin} setloggedin={setloggedin} />
 <Routes>
     <Route path='/' element={<Home/>} />
-    <Route path='/login' element={<Login/>}/>
-    <Route path='/signup' element={<Signup/>}/>
+    <Route path='/login' element={<Login setloggedin={setloggedin}/>}/>
+    <Route path='/signup' element={<Signup setloggedin={setloggedin}/>}/>
     <Route path='/dashboard' element={<Dashboard/>}/>
   
   </Routes>

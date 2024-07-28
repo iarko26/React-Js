@@ -5,6 +5,7 @@ function useGif(tag) {
   const [loading,setloader]=useState(false);
   const API_KEY='smCHYUfkbhojcC3Uq5PMhTY9V3Bc33rN';
  const url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`
+
   async function fetchdata(tag){
   try{
     setloader(true);

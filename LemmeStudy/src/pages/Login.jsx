@@ -1,8 +1,8 @@
-import React from 'react'
-import Template from '../components/Template'
-import loginimg from '../assets/login.gif'
+import React from 'react';
+import Template from '../components/Template';
+import loginimg from '../assets/login.jpg';
 
-function Login({setloggedin}) {
+function Login({ setloggedin }) {
   return (
     <div>
       <Template
@@ -12,10 +12,8 @@ function Login({setloggedin}) {
         formtype='Login'
         setloggedin={setloggedin}
       />
-
-
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
