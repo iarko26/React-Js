@@ -2,7 +2,7 @@ import AppContext from "./AppContext";
 import React, { useEffect } from 'react'
 import baseURl from'../baseURl';
 import {useState} from 'react'
-
+import { useNavigate } from "react-router-dom";
 function AppContextProvider({children}) {
     //loading
     const [loading,setloading]=useState(false);
@@ -12,18 +12,18 @@ function AppContextProvider({children}) {
     const [page,setpage]=useState(1);
     //totalPages
     const [totalPages,settotalPages]=useState(null);
-
+     const navigate=useNavigate();
     //fetch data from api
     async function fetchpost(page=1,tag=null,category){
 
         let url=`${baseURl}?page=${page}`;
         setloading(true);
-        // if(tag){
-        //   url+=`&tag=${tag}`
-        // }
-        // if(category){
-        //   url+=`&category=${category}`
-        // }
+        if(tag){
+          url+=`&tag=${tag}`
+        }
+        if(category){
+          url+=`&category=${category}`
+        }
         try{
             const response=await fetch(url);
             const output=await response.json();
@@ -50,8 +50,11 @@ function AppContextProvider({children}) {
 
     //go to next page and previous page 
     function handlepages(page){
+      //to show the page number in the url
+      navigate({search:`?page=${page}`})
+      
       setpage(page);
-      fetchpost(page);
+
     }
 
 

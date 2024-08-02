@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import AppContext from '../context/AppContext'
-import AppContextProvider from '../context/AppContextProvider'
+
 import Loader from './Loader';
 import Blog from './Blog';
 function Blogs() {
